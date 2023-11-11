@@ -1,0 +1,38 @@
+---
+- name: Jenkins Node Python
+  hosts: localhost
+  remote_user: ec2-user
+  become: true
+  
+  tasks:
+
+    - name: install dependencies
+      yum:
+        name: "{{ package }} "
+        state: present
+      vars:
+        package:
+        - git
+        - tree
+
+    - name: Create a login user
+      user:
+        name: python-app-server
+        groups: # Empty by default, here we give it some groups
+         - wheel
+        state: present
+        shell: /bin/bash       # Defaults to /bin/bash
+        system: no             # Defaults to no
+        createhome: yes        # Defaults to yes
+        home: /home/python-app-server # Defaults to /home/<username>
+    
+    - block:
+      - name: Install Python 3
+        yum:
+          name: python3
+          state: present
+
+      - name: Install pip for Python 3
+        yum:
+          name: python3-pip
+          state: present
