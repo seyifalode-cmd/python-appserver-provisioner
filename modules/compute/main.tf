@@ -22,7 +22,7 @@ resource "aws_key_pair" "aws-key" {
 #===============================
 resource "aws_instance" "app_server" {
 
-  instance_type               = "t2.micro"
+  instance_type               = "t3.micro"
   ami                         = data.aws_ssm_parameter.webserver-ami.value
   tags = {
   Name = "app_server"
