@@ -1,4 +1,6 @@
-**Python App Server Provisioner — Automated EC2 Provisioning with Terraform and Ansible**
+# Python App Server Provisioner — Automated EC2 Provisioning with Terraform and Ansible
+
+Oluwaseyi Michael Falode | Cloud & DevOps Engineering | Toronto, ON
 
 Provision a fully configured Python application server on AWS using Terraform to build the network and compute infrastructure, then automatically configure the instance with Git, Python 3, pip, and a dedicated application user via an Ansible playbook.
 
